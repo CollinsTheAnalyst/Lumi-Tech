@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section style="margin-top: 20px;">
+    <h2 style="font-size: 2rem; color: #fff; margin-bottom: 30px; position: relative; display: inline-block;">
+        Contacts
+        <span style="position: absolute; bottom: -10px; left: 0; width: 50px; height: 4px; background: #2f80ed; border-radius: 2px;"></span>
+    </h2>
+
+    <div style="max-width: 600px; margin: 0 auto; padding: 40px; background: #181a27; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <h3 style="text-align: center; color: #fff; margin-bottom: 30px; font-weight: 600;">Contact Me</h3>
+        
+        {% if show_success %}
+            <div style="background: #28a745; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                Thank you! Your message has been sent successfully.
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div style="margin-bottom: 20px;">
+                <label style="color: #aaa; font-size: 0.9rem; display: block; margin-bottom: 5px;">First Name</label>
+                {{ form.first_name }}
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="color: #aaa; font-size: 0.9rem; display: block; margin-bottom: 5px;">Last Name</label>
+                {{ form.last_name }}
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="color: #aaa; font-size: 0.9rem; display: block; margin-bottom: 5px;">Email</label>
+                {{ form.email }}
+            </div>
+
+            
+            
+            <div style="margin-bottom: 30px;">
+                <label style="color: #aaa; font-size: 0.9rem; display: block; margin-bottom: 5px;">Message</label>
+                {{ form.message }}
+            </div>
+
+            <button type="submit" style="width: 100%; padding: 12px; background: #2f80ed; color: #fff; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: 0.3s;">
+                Send Message
+            </button>
+        </form>
+    </div>
+</section>
+
+<style>
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #333;
+        border-radius: 6px;
+        background: #222;
+        color: #fff;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+    .form-control:focus {
+        border-color: #2f80ed;
+        outline: none;
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section style="margin-top: 20px; margin-bottom: 50px;">
+    <h2 style="font-size: 2rem; color: #fff; margin-bottom: 20px; position: relative; display: inline-block;">
+        About
+        <span style="position: absolute; bottom: -10px; left: 0; width: 50px; height: 4px; background: #fff; border-radius: 2px;"></span>
+    </h2>
+
+    <div style="background: rgba(255,255,255,0.03); padding: 30px; border-radius: 20px; line-height: 1.8; color: #ccc; border: 1px solid rgba(255, 255, 255, 0.1);">
+        <p>
+            {% if profile.about_text %}
+                {{ profile.about_text|linebreaksbr }}
+            {% else %}
+                Welcome to <b>Lumi-Tech</b>. A place where we help you navigate along the digital space.
+                <br><br>
+                We will gladly help you with web development, Data Analytics, SEO and Content writing for your brand, Social media management, and virtual assistance services.
+            {% endif %}
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2 style="font-size: 2rem; color: #fff; margin-bottom: 30px; position: relative; display: inline-block;">
+        Skills
+        <span style="position: absolute; bottom: -10px; left: 0; width: 50px; height: 4px; background: #fff; border-radius: 2px;"></span>
+    </h2>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 50px;"> 
+        
+        {% for skill in skills %}
+        <div class="skill-card" title="{{ skill.name }}">
+            
+            {% if skill.icon_image %}
+                <img src="{{ skill.icon_image.url }}" alt="{{ skill.name }}" style="width: 70px; height: 70px; object-fit: contain;">
+            {% else %}
+                <i class="fas fa-code" style="font-size: 3rem; color: #fff;"></i>
+            {% endif %}
+            
+        </div>
+        {% endfor %}
+        
+        {% if not skills %}
+            <div class="skill-card" title="Python">
+                <i class="fab fa-python" style="font-size: 3rem; color: #fff;"></i>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+    .skill-card {
+        background: #252525;
+        aspect-ratio: 1;
+        border-radius: 20px; 
+        /* The overall effect of smaller card size is achieved by the reduced icon size and increased gap */
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        transition: 0.35s; 
+        border: 1px solid transparent;
+    }
+
+    .skill-card:hover {
+        background: #333;
+        transform: translateY(-5px) rotate(3deg);
+        border-color: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+        div[style*="grid-template-columns"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+</style>
+
+{% endblock %}

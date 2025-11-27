@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,12 +32,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'portfolio',
 ]
 
 MIDDLEWARE = [
@@ -54,13 +57,15 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'portfolio.context_processors.profile_context',
             ],
         },
     },
@@ -98,6 +103,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'portfolio.backends.EmailBackend',  # Our new custom email login
+    'django.contrib.auth.backends.ModelBackend', # Default (keep this for admin/fallback)
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -120,3 +130,26 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Lumi-Tech Admin",
+    "site_header": "Lumi-Tech Portfolio",
+    "site_brand": "Lumi-Tech",
+    "welcome_sign": "Welcome to your Portfolio Dashboard",
+    "copyright": "Lumi-Tech Ltd",
+    "search_model": "portfolio.Project", # Adds a search bar for projects
+}
+
+
+# --- EMAIL SETTINGS (Crucial for receiving contact forms) ---
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'      # Use your SMTP server (e.g., Gmail, SendGrid, etc.)
+EMAIL_PORT = 587                   # Standard port for TLS
+EMAIL_USE_TLS = True               # Use Transport Layer Security
+EMAIL_HOST_USER = 'lumitechconsultant@gmail.com' # Your email address
+EMAIL_HOST_PASSWORD = 'Lumitech@2025'        # Your password or app-specific password
+DEFAULT_FROM_EMAIL = 'Lumi-Tech Portfolio <your_sending_email@gmail.com>'
+RECIPIENT_ADDRESS = 'lumitechconsultant@gmail.com' # Your actual recipient address

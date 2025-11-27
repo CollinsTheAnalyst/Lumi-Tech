@@ -1,0 +1,107 @@
+<aside class="sidebar-card">
+    
+    <div style="position: relative; margin-bottom: 20px;">
+        {% if profile and profile.profile_image %}
+            <img src="{{ profile.profile_image.url }}" alt="Profile" 
+                 style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #1f2235;">
+        {% else %}
+            <div style="width: 150px; height: 150px; border-radius: 50%; background: #333; display:flex; align-items:center; justify-content:center;">
+                <i class="fas fa-user" style="font-size: 3rem;"></i>
+            </div>
+        {% endif %}
+    </div>
+
+    <h2 style="color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 5px; text-align: center;">
+        {% if profile %}{{ profile.name }}{% else %}Your Name{% endif %}
+    </h2>
+    <div style="background: rgba(255,255,255,0.05); padding: 5px 15px; border-radius: 8px; margin-bottom: 30px;">
+        <span style="color: #aaa; font-size: 0.9rem;">
+            {% if profile %}{{ profile.title }}{% else %}Software Engineer{% endif %}
+        </span>
+    </div>
+
+    <div style="width: 100%; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px;"></div>
+
+    <style>
+        .contact-pill {
+            width: 100%;
+            background: #1f2235; /* Your Blue Theme Background */
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: #ddd;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+        .contact-pill:hover { transform: translateY(-3px); background: #25283d; }
+        .contact-pill i { 
+            color: #2f80ed; /* Your Blue Icon Color */
+            width: 30px; 
+            font-size: 1.1rem; 
+        }
+        .contact-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+
+    <div class="contact-pill">
+        <i class="fas fa-envelope"></i>
+        <span class="contact-text" title="{{ profile.email }}">
+            {% if profile %}{{ profile.email }}{% else %}email@example.com{% endif %}
+        </span>
+    </div>
+
+    <div class="contact-pill">
+        <i class="fas fa-map-marker-alt"></i>
+        <span class="contact-text">Nairobi, Kenya</span> 
+    </div>
+
+    <div class="contact-pill">
+        <i class="fas fa-phone-alt"></i>
+        <span class="contact-text">{% if profile %}{{ profile.phone }}{% else %}+254 700 000 000{% endif %}</span>
+    </div>
+
+    <div style="margin-top: 30px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        
+        {% if profile.facebook_link %}
+        <a href="{{ profile.facebook_link }}" target="_blank" style="color: #888; font-size: 1.2rem; transition: 0.3s;">
+            <i class="fab fa-facebook"></i>
+        </a>
+        {% endif %}
+
+        {% if profile.instagram_link %}
+        <a href="{{ profile.instagram_link }}" target="_blank" style="color: #888; font-size: 1.2rem; transition: 0.3s;">
+            <i class="fab fa-instagram"></i>
+        </a>
+        {% endif %}
+
+        {% if profile.twitter_link %}
+        <a href="{{ profile.twitter_link }}" target="_blank" style="color: #888; font-size: 1.2rem; transition: 0.3s;">
+            <i class="fab fa-twitter"></i>
+        </a>
+        {% endif %}
+
+        {% if profile.github_link %}
+        <a href="{{ profile.github_link }}" target="_blank" style="color: #888; font-size: 1.2rem; transition: 0.3s;">
+            <i class="fab fa-github"></i>
+        </a>
+        {% endif %}
+
+        {% if profile.linkedin_link %}
+        <a href="{{ profile.linkedin_link }}" target="_blank" style="color: #888; font-size: 1.2rem; transition: 0.3s;">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        {% endif %}
+
+        <style>
+            a:hover i { color: #fff; transform: translateY(-3px); }
+        </style>
+    </div>
+    
+    <div style="height: 10px;"></div>
+
+</aside>

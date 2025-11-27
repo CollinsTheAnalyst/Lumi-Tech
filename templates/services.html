@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section style="margin-top: 20px; margin-bottom: 50px;">
+    <h2 style="font-size: 2rem; color: #fff; margin-bottom: 30px; position: relative; display: inline-block;">
+        My Services
+        <span style="position: absolute; bottom: -10px; left: 0; width: 50px; height: 4px; background: #fff; border-radius: 2px;"></span>
+    </h2>
+
+    <div class="services-container">
+        {% for service in services %}
+            <article class="service-item" style="margin-bottom: 60px; padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                
+                <!-- use cycle to set a class, not a raw CSS value -->
+                <div class="service-row {% cycle 'row' 'row-reverse' %}">
+
+                    {% if service.service_image %}
+                    <div class="service-image">
+                        <img src="{{ service.service_image.url }}" alt="{{ service.title }}" 
+                             style="width: 100%; height: auto; border-radius: 10px; object-fit: cover;">
+                    </div>
+                    {% endif %}
+
+                    <div class="service-content">
+                        
+                        <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 10px; font-weight: 700; border-bottom: 2px solid #2f80ed; padding-bottom: 5px;">
+                            {{ service.title }}
+                        </h3>
+                        
+                        <p style="line-height: 1.7; color: #ccc;">
+                            {{ service.description|linebreaksbr }}
+                        </p>
+                        
+                    </div>
+
+                </div>
+            </article>
+        {% empty %}
+            <div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                <p style="color: #ccc;">No services added yet. Please visit the Admin Panel to list your offerings!</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<style>
+    .top-nav a.active {
+        color: #aaa !important;
+        border-bottom: none !important;
+    }
+    .top-nav a[href*="services"] {
+        color: #fff !important;
+        border-bottom: 2px solid #fff !important;
+    }
+    
+    /* Responsive stacking for mobile */
+    @media (max-width: 800px) {
+        .service-item div[style*="display: flex"] {
+            flex-direction: column !important;
+        }
+    }
+
+    /* Local styles — move to your CSS file if preferred */
+    .service-row { display: flex; align-items: center; gap: 30px; }
+    .service-row.row { flex-direction: row; }
+    .service-row.row-reverse { flex-direction: row-reverse; }
+    .service-image { flex-shrink: 0; width: 40%; }
+    .service-content { flex: 1; }
+</style>
+
+{% endblock %}

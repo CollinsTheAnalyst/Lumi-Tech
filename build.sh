@@ -19,5 +19,22 @@ echo "--- Loading initial data fixture ---"
 # VITAL: Imports data from the initial_data.json file into the new database
 python manage.py loaddata initial_data.json
 
-# You can add a command here to create a superuser if you want
-# python manage.py createsuperuser --no-input
+# --- AUTOMATED SUPERUSER CREATION ---
+echo "--- Checking for and creating superuser ---"
+# This runs Python code inside the Django environment
+python manage.py shell <<EOF
+from django.contrib.auth import get_user_model
+import os
+
+User = get_user_model()
+username = os.environ.get('DJANGO_SUPERUSER_USERNAME')
+password = os.environ.get('DJANGO_SUPERUSER_PASSWORD')
+
+# Only create the user if the variables are set AND the user doesn't exist
+if username and password and not User.objects.filter(username=username).exists():
+    # Use a dummy email since Django requires one for createsuperuser
+    User.objects.create_superuser(username=username, password=password, email='admin@lumitech.com')
+    print("Automated superuser created successfully!")
+else:
+    print("Superuser already exists or environment variables were missing during build.")
+EOF

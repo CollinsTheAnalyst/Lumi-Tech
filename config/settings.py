@@ -139,3 +139,5 @@ EMAIL_HOST_USER = 'lumitechconsultant@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') 
 DEFAULT_FROM_EMAIL = 'Lumi-Tech Portfolio <lumitechconsultant@gmail.com>'
 RECIPIENT_ADDRESS = 'lumitechconsultant@gmail.com'
+DJANGO_SUPERUSER_USERNAME = os.environ.get('DJANGO_SUPERUSER_USERNAME')
+DJANGO_SUPERUSER_PASSWORD = os.environ.get('DJANGO_SUPERUSER_PASSWORD')

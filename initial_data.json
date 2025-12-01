@@ -1,0 +1,213 @@
+[
+{
+  "model": "portfolio.profile",
+  "pk": 1,
+  "fields": {
+    "name": "Lumitech",
+    "title": "Full-Stack Digital Consultant",
+    "email": "Lumitechconsultant@gmail.com",
+    "phone": "+254714326105",
+    "profile_image": "profile/Gemini_Generated_Image_4e40g54e40g54e40.png",
+    "about_text": "Welcome to Lumi-Tech, your single partner for success in the digital space. \r\n\r\nWe deliver comprehensive solutions that include expert Web Development, insightful Data Analytics, strategic SEO & Content Creation, and reliable Social Media Management & Virtual Assistance. \r\n\r\nLet us help you navigate the digital landscape with confidence.",
+    "facebook_link": "https://www.facebook.com/collins.kim.501",
+    "instagram_link": null,
+    "twitter_link": "https://x.com/Lumi_ck",
+    "github_link": "https://github.com/CollinsTheAnalyst",
+    "linkedin_link": null
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 1,
+  "fields": {
+    "name": "Django",
+    "icon_image": "skills/django.png"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 2,
+  "fields": {
+    "name": "JavaScript",
+    "icon_image": "skills/react.png"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 3,
+  "fields": {
+    "name": "sql",
+    "icon_image": "skills/sql.png"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 4,
+  "fields": {
+    "name": "HTML",
+    "icon_image": "skills/html.png"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 5,
+  "fields": {
+    "name": "CSS",
+    "icon_image": "skills/css.png"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 6,
+  "fields": {
+    "name": "Tableau",
+    "icon_image": "skills/Tableau.png"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 7,
+  "fields": {
+    "name": "Clickup",
+    "icon_image": "skills/clickup.jpg"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 8,
+  "fields": {
+    "name": "Excel",
+    "icon_image": "skills/excel.png"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 9,
+  "fields": {
+    "name": "Canva",
+    "icon_image": "skills/Canva.jpg"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 10,
+  "fields": {
+    "name": "Social Media Marketing",
+    "icon_image": "skills/Social_media_marketing.png"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 11,
+  "fields": {
+    "name": "SEO",
+    "icon_image": "skills/SEO.png"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 1,
+  "fields": {
+    "title": "Web Development",
+    "description": "I provide comprehensive, full-stack Web Development solutions, mastering the entire application stack from intuitive Frontend design to robust Backend development (Django/Python). My expertise covers the full web lifecycle, specializing in launching new digital platforms like Company Profile sites and specialized Shopify e-commerce shops, along with executing complete Website Revamps to modern and optimized platforms.",
+    "service_image": "services/Web_development.jpg"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 2,
+  "fields": {
+    "title": "Content Writing and SEO",
+    "description": "I provide strategic Content Writing and SEO services to capture your target audience and significantly boost search rankings. I handle all digital content needs, including compelling Web Copy for landing pages and brand materials, Copywriting for campaigns, and authoritative SEO Content Creation (blogs, articles). Every piece is crafted to be engaging, brand-aligned, and technically optimized for search engines, ensuring your digital message reaches the right people and drives measurable results.",
+    "service_image": "services/content_writing.jpg"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 3,
+  "fields": {
+    "title": "Social Media Strategy and Management",
+    "description": "I offer comprehensive Social Media Management to cultivate your brand's digital community and amplify your online voice. Services include strategic Content Creation (visuals and copy) tailored for maximum engagement across key platforms like Facebook, LinkedIn, and Instagram. I manage everything from scheduled publishing and performance tracking to direct engagement, ensuring timely, on-brand communication that converts followers into clients and strengthens your market presence.",
+    "service_image": "services/Social_Media.jpg"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 4,
+  "fields": {
+    "title": "Virtual Assistance",
+    "description": "I provide dedicated Virtual Assistance to streamline your operations and free your time for strategic tasks. My comprehensive support covers core administrative needs, including meticulous Inbox and Schedule Management, efficient data entry, and online research. I also handle creative duties such as document preparation, creating compelling presentations, and drafting simple social media posts for publishing, ensuring smooth workflow and maximized productivity.",
+    "service_image": "services/Virtual_assistance.jpg"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 5,
+  "fields": {
+    "title": "Data Analytics Services",
+    "description": "I offer end-to-end Data Analytics services to transform raw data into clear, actionable business intelligence. My expertise covers the entire data lifecycle, from precise Data Entry and Cleaning  to robust Analysis and compelling Visualization (using interactive dashboards and reports). I help you harness the power of your data to make smarter, evidence-based decisions and drive business strategy.",
+    "service_image": "services/Data_Analytics.jpg"
+  }
+},
+{
+  "model": "portfolio.category",
+  "pk": 1,
+  "fields": {
+    "name": "Web Development"
+  }
+},
+{
+  "model": "portfolio.category",
+  "pk": 2,
+  "fields": {
+    "name": "Content Writing"
+  }
+},
+{
+  "model": "portfolio.category",
+  "pk": 3,
+  "fields": {
+    "name": "VA"
+  }
+},
+{
+  "model": "portfolio.category",
+  "pk": 4,
+  "fields": {
+    "name": "Data Analytics"
+  }
+},
+{
+  "model": "portfolio.category",
+  "pk": 5,
+  "fields": {
+    "name": "SMM"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 1,
+  "fields": {
+    "title": "OpticsBible",
+    "image": "projects/Opticsbible.png",
+    "short_description": "Authored a series of SEO-optimized articles and product guides for a high-traffic optics and eyewear resource. Content drives organic traffic and establishes brand authority in a competitive niche.",
+    "link": "https://opticsbible.com/",
+    "categories": [
+      2
+    ]
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 2,
+  "fields": {
+    "title": "NoseKnows",
+    "image": "projects/perfumes.jpg",
+    "short_description": "Developed and launched NoseKnows, a fully functional, high-end e-commerce perfume shop. The platform features secure payment integration and a seamless customer browsing experience.",
+    "link": "https://noseknows-shop.pages.dev/",
+    "categories": [
+      1
+    ]
+  }
+}
+]
